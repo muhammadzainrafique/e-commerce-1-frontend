@@ -1,0 +1,111 @@
+.cartContainer {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cartTitle {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: #f3f3f3; */
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 6px;
+  transition: 0.3s ease-in-out;
+}
+
+.cartItem:hover {
+  background: #f1f1f1;
+}
+
+.cartImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cartDetails {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.cartItemName {
+  font-size: 18px;
+  margin: 0;
+}
+
+.cartPrice {
+  font-size: 16px;
+  color: #555;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+}
+
+.quantityButton {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.quantityButton:hover {
+  background: #0056b3;
+}
+
+.quantity {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.deleteButton {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.deleteButton:hover {
+  background: #cc0000;
+}
+
+.cartSummary {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e3f2fd;
+  border-radius: 6px;
+  text-align: right;
+  font-size: 18px;
+}
+
+.cartSummary span {
+  font-weight: bold;
+}
