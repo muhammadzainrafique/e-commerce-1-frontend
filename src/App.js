@@ -38,6 +38,8 @@ import { Toaster } from "react-hot-toast";
 import useAuth from "./hooks/useAuth";
 import AdminUsers from "./Components/admin/users/AdminUsers";
 import PreviousOrders from "./Components/prev-orders/PreviousOrders";
+import AdminOrders from "./Components/admin-orders/AdminOrders";
+import AdminOrderDetail from "./Components/admin-order-detail/AdminOrderDetail";
 
 // Private Route Component
 const PrivateRoute = ({ children, allowedRoles, userRole }) => {
@@ -72,6 +74,7 @@ const App = () => {
           <Route path="/resetPassword" element={<ResetPass />} />
           <Route path="/blogDetails" element={<BlogDetails />} />
           <Route path="/terms" element={<TermsConditions />} />
+          
 
           
           <Route
@@ -101,7 +104,15 @@ const App = () => {
                 <AdminLayout />
               </PrivateRoute>
             }
+            
           >
+            
+          
+
+
+
+            <Route path="/admin/orders" element={<AdminOrders />} />
+          <Route path="/admin/orders-detail/:id" element={<AdminOrderDetail />} />
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="users" element={<AdminUsers />} />
             <Route path="products" element={<AdminProducts />} />

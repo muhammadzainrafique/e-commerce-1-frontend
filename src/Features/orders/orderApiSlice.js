@@ -26,6 +26,14 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         } else return [{ type: 'Order', id: 'LIST' }];
       },
     }),
+    getOrderById: builder.query({
+      query: (id) => `/orders/admin-orders/${id}`,
+      transformResponse: (responseData) => {
+        console.log({ order_response_data: responseData });
+        return ordersAdapter.addOne(initialState, responseData);
+      },
+      providesTags: (result, error, arg) => [{ type: 'Order', id: arg }],
+    }),
     getUserOrders: builder.query({
       query: (id) => `/orders/user-orders/${id}`,
       transformResponse: (responseData) => {
@@ -66,6 +74,16 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Order'],
     }),
+    updateOrderStatus: builder.mutation({
+      query: ({ id, order_status }) => ({
+        url: `/orders/update-status/${id}`,
+        method: 'PATCH',
+        body: {
+          order_status,
+        },
+      }),
+      invalidatesTags: ['Order'],
+    }),
     deleteOrder: builder.mutation({
       query: ({ id }) => ({
         url: `/orders/${id}`,
@@ -84,6 +102,7 @@ export const {
   useCreateOrderMutation,
   useUpdateOrderMutation,
   useDeleteOrderMutation,
+  useUpdateOrderStatusMutation
 } = ordersApiSlice;
 
 // Returns the query result object
